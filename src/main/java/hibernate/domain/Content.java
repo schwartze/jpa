@@ -8,16 +8,16 @@ import javax.persistence.Table;
 @Entity
 @Table( name = "content" )
 public class Content {
-	@Id
 	@Column( name = "content_id" )
 	private int content_id;
 	
+	@Id
 	@Column( name = "user_id" )
 	private int user_id;
 	
 	@Column( name = "description" )
 	private String description;
-	
+
 	public int getContent_id() {
 		return content_id;
 	}
@@ -41,5 +41,4 @@ public class Content {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
 }

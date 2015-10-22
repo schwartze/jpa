@@ -186,6 +186,18 @@
 		<version>${slf4j.version}</version>
 		<scope>runtime</scope>
 	</dependency>
+	
+	<dependency>
+		<groupId>com.mysema.querydsl</groupId>
+		<artifactId>querydsl-apt</artifactId>
+		<version>3.6.8</version>
+		<scope>provided</scope>
+	</dependency>
+	<dependency>
+		<groupId>com.mysema.querydsl</groupId>
+		<artifactId>querydsl-jpa</artifactId>
+		<version>3.6.8</version>
+		</dependency>
 </dependencies>
 <build>
 	<sourceDirectory>src</sourceDirectory>

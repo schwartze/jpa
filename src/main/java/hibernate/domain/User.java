@@ -1,14 +1,10 @@
 package hibernate.domain;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -30,8 +26,9 @@ public class User {
 	@Column( name = "last_name" )
 	private String last_name;
 	
-	@OneToMany( cascade = CascadeType.ALL, mappedBy = "user" )
-	private List<Content> content;
+	@OneToOne
+	@JoinColumn( name = "user_id" )
+	private Content content;
 
 	public int getUser_id() {
 		return user_id;
@@ -73,13 +70,11 @@ public class User {
 		this.last_name = last_name;
 	}
 
-	public List<Content> getContent() {
+	public Content getContent() {
 		return content;
 	}
 
-	public void setContent(List<Content> content) {
+	public void setContent(Content content) {
 		this.content = content;
 	}
-	
-	
 }

@@ -13,15 +13,20 @@ import org.slf4j.LoggerFactory;
 public class Main {
 	private static Logger logger = LoggerFactory.getLogger( Main.class );
 	public static void main(String[] args) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory( "everyzone" );
-		EntityManager em = emf.createEntityManager();
+		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory( "everyzone" );
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		
-		User user = em.find( User.class, 1 );
-//		logger.debug( "{}", user.getUser_id() );
-//		logger.debug( "{}", user.getUuid() );
-//		logger.debug( "{}", user.getEmail() );
-//		logger.debug( "{}", user.getFirst_name() );
-//		logger.debug( "{}", user.getLast_name() );
-		em.close();
+		User user = entityManager.find( User.class, 1 );
+		logger.debug( "{}", user.getUser_id() );
+		logger.debug( "{}", user.getUuid() );
+		logger.debug( "{}", user.getEmail() );
+		logger.debug( "{}", user.getFirst_name() );
+		logger.debug( "{}", user.getLast_name() );
+		
+		Content content = user.getContent();
+		logger.debug( "{}", content.getContent_id() );
+		logger.debug( "{}", content.getUser_id() );
+		logger.debug( "{}", content.getDescription() );
+		entityManager.close();
 	}
 }
